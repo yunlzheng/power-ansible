@@ -1,0 +1,2 @@
+workspace: '/vagrant'
+pypi_flag: '-i http://pypi.douban.com/simple'

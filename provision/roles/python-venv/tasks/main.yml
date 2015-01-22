@@ -1,0 +1,21 @@
+---
+- name: install ubuntu default pip dkpg
+  apt: name=python-pip state=latest
+
+- name: update pip to latest version
+  pip: name=pip state=latest extra_args='{{ pypi_flag }}'
+
+- name: install python virtual enviroment
+  pip: name=virtualenv state=latest extra_args='{{ pypi_flag }}'
+
+- name: install python virtual enviroment wrapper
+  pip: name=virtualenvwrapper state=latest extra_args='{{ pypi_flag }}'
+
+- name: create a default virtualenv workspace
+  shell: virtualenv '{{ virtualenv_install_path }}'
+  sudo: no
+  args:
+    creates: 'virtualenv_install_path'
+
+# - name: install python
+#   pip: requirements=/vagrant/requirements.txt virtualenv='{{ virtualenv_install_path }}'

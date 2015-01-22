@@ -1,0 +1,8 @@
+---
+- name: confige the apt repository to speed up
+  copy: src=sources.list dest=/etc/apt/sources.list
+
+- name: update the apt index
+  shell: apt-get update && touch apt.update.success
+  args:
+    creates: apt.update.success

@@ -1,0 +1,3 @@
+virtualenv_namespace: 'workspace'
+virtualenv_install_path: '.venv/{{ virtualenv_namespace }}'
+pypi_flag: '-i http://pypi.douban.com/simple'

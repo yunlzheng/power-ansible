@@ -1,0 +1,3 @@
+---
+- name: install python requirements
+  pip: requirements='{{workspace}}/requirements.txt' virtualenv='~/{{ virtualenv_install_path }}' extra_args='{{ pypi_flag }}'

@@ -1,0 +1,8 @@
+---
+- hosts: all
+  gather_facts: True
+  sudo: yes
+  roles:
+    - common
+    - python-venv
+    - aworker
