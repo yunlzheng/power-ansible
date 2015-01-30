@@ -6,3 +6,6 @@
   shell: apt-get update && touch apt.update.success
   args:
     creates: apt.update.success
+
+- name: install python dev package
+  apt: name=python-dev
