@@ -196,6 +196,16 @@ a.pure-button-primary {
     background: white;
 }
 
+.admin-content-wrapper {
+    /* These styles are required for the "scroll-over" effect */
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    min-height: 12%;
+    z-index: 2;
+    background: white;
+}
+
 /* This is the class used for the main content headers (<h2>) */
 
 .content-head {
