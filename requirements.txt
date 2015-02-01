@@ -1,2 +1,4 @@
 Flask==0.10.1
+Fabric==1.10.1
+paramiko==1.15.2
 ansible==1.8.2

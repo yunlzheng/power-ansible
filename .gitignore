@@ -1,4 +1,4 @@
 .vagrant
 .idea
-.pyc
+*.pyc
 vagrant_ansible_inventory_default
