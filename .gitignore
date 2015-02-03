@@ -2,3 +2,4 @@
 .idea
 *.pyc
 vagrant_ansible_inventory_default
+roles
