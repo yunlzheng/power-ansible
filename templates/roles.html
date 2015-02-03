@@ -11,51 +11,50 @@
     <li><a href="/sinup">Sinup</a></li>
 </ul>
 {% endblock %}
-
 {% block content %}
 <div class="admin-content-wrapper">
     <div class="content">
         <div class="pure-g" style="min-height: 100px">
-
-
-            <div class="pure-u-17-24" style="background-color:#e1f2fa">
-                <table class="pure-table pure-table-horizontal" style="display:none">
+            <div class="pure-u-17-24" style="">
+                <div>
+                    <button class="pure-button pure-button-primary">Add Roles</button>
+                </div>
+                <br>
+                <table class="pure-table pure-table-horizontal">
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Make</th>
-                        <th>Model</th>
-                        <th>Year</th>
+                        <th>Role Name</th>
+                        <th style="min-width:100px">Description</th>
+                        <th>Author</th>
+                        <th>Support Platforms</th>
+                        <th>Create Date</th>
                     </tr>
                     </thead>
 
                     <tbody>
                     <tr>
                         <td>1</td>
-                        <td>Honda</td>
-                        <td>Accord</td>
-                        <td>2009</td>
+                        <td>ansible-role-apache</td>
+                        <td>install apache services</td>
+                        <td>ylzheng</td>
+                        <td>Ubuntu(trusty)</td>
+                        <td>2015-12-31 12:00</td>
                     </tr>
-
                     <tr>
-                        <td>2</td>
-                        <td>Toyota</td>
-                        <td>Camry</td>
-                        <td>2012</td>
-                    </tr>
-
-                    <tr>
-                        <td>3</td>
-                        <td>Hyundai</td>
-                        <td>Elantra</td>
-                        <td>2010</td>
+                        <td>1</td>
+                        <td>ansible-role-renv</td>
+                        <td>install apache services</td>
+                        <td>ylzheng</td>
+                        <td>Ubuntu(trusty)</td>
+                        <td>2015-12-31 12:00</td>
                     </tr>
                     </tbody>
                 </table>
             </div>
             <div class="pure-u-1-24"></div>
-            <div class="pure-u-6-24" style="background-color:#fcebbd">
-                <div class="pure-menu pure-menu-open" style="display:none">
+            <div class="pure-u-6-24" style="">
+                <div class="pure-menu pure-menu-open" style="">
                     <a class="pure-menu-heading">Yahoo! Sites</a>
                     <ul>
                         <li><a href="#">Flickr</a></li>
@@ -69,14 +68,13 @@
                     </ul>
                 </div>
             </div>
-
         </div>
-        <div class="pure-g" style="min-height:100px">
+        <div class="pure-g" style="min-height:100px;display:none">
             <div class="pure-u-6-24" style="background-color:#E6E6E6"></div>
             <div class="pure-u-1-24"></div>
             <div class="pure-u-17-24" style="background-color:#E6E6E6">
+            </div>
         </div>
     </div>
-
 </div>
 {% endblock %}
