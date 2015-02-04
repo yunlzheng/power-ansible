@@ -2,3 +2,4 @@
 #!/usr/bin/python
 
 ANSIBLE_ROLES = "/etc/ansible/roles"
+ANSIBLE_PLAYBOOKS = "/etc/ansible/playbooks"
