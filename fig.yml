@@ -1,0 +1,11 @@
+web:
+  build: .
+  command: python server.py
+  ports:
+   - "5001:5001"
+  volumes:
+   - .:/vagrant
+  links:
+   - mongodb
+redis:
+  image: mongodb
