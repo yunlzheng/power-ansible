@@ -36,7 +36,7 @@ def show_hosts(uuid=None):
     return render_template('hosts.html')
 
 @app.route('/login', methods=['GET', 'POST'])
-def not_found(error):
+def loin():
     return render_template('login.html')
 
 @app.errorhandler(404)

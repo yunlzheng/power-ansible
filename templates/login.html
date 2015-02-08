@@ -3,7 +3,6 @@
 
 {% block menus %}
 <ul>
-    <li class="pure-menu-selected"><a href="/">Home</a></li>
     <li><a href="/">Dashboard</a></li>
     <li><a href="/tasks">Tasks</a></li>
     <li><a href="/hosts">Hosts</a></li>
@@ -12,69 +11,21 @@
 </ul>
 {% endblock %}
 
-{% block splash %}
-    <div class="splash-container">
-    <div class="splash">
-        <h1 class="splash-head">Power Ansible</h1>
-        <p class="splash-subhead">
-            The Power up the ansible.
-        </p>
-        <p>
-            <a href="http://purecss.io" class="pure-button pure-button-primary">Get Started</a>
-        </p>
-    </div>
-</div>
-{% endblock %}
-
 {% block content %}
-<div class="content-wrapper">
-        <div class="content">
-        <h2 class="content-head is-center">Excepteur sint occaecat cupidatat.</h2>
+<div class="admin-content-wrapper">
 
+    <div class="content">
         <div class="pure-g">
-            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
 
-                <h3 class="content-subhead">
-                    <i class="fa fa-rocket"></i>
-                    Get Started Quickly
-                </h3>
-                <p>
-                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
-                </p>
-            </div>
-            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-                <h3 class="content-subhead">
-                    <i class="fa fa-mobile"></i>
-                    Responsive Layouts
-                </h3>
-                <p>
-                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
-                </p>
-            </div>
-            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-                <h3 class="content-subhead">
-                    <i class="fa fa-th-large"></i>
-                    Modular
-                </h3>
-                <p>
-                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
-                </p>
-            </div>
-            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-                <h3 class="content-subhead">
-                    <i class="fa fa-check-square-o"></i>
-                    Plays Nice
-                </h3>
-                <p>
-                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
-                </p>
-            </div>
+                <form class="pure-form" style="width:400px;margin:0 auto">
+                    <h2>Power</h2>
+                    <fieldset class="pure-group">
+                        <input type="text" class="pure-input-1-2" placeholder="Username">
+                        <input type="text" class="pure-input-1-2" placeholder="Password">
+                    </fieldset>
+                    <button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Login</button>
+                </form>
         </div>
     </div>
-
-      <div class="footer l-box is-center">
-        View the source of this layout to learn more. Made with love by the YUI Team.
-    </div>
-
 </div>
 {% endblock %}

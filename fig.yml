@@ -1,5 +1,5 @@
 web:
-  build: .
+  image: yunlzheng/ansible-power
   command: python server.py
   ports:
    - "5001:5001"
