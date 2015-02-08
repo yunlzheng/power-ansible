@@ -6,6 +6,6 @@ web:
   volumes:
    - .:/vagrant
   links:
-   - mongodb
-redis:
-  image: mongodb
+   - mongo
+mongo:
+  image: mongo
