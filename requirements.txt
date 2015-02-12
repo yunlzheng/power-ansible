@@ -3,4 +3,5 @@ Fabric==1.10.1
 paramiko==1.15.2
 ansible==1.8.2
 gittle==0.5.0
+WTForms==2.0.2
 #fig==1.0.1

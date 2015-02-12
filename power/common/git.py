@@ -2,7 +2,8 @@
 # !/usr/bin/python
 
 from gittle import Gittle, GittleAuth
-from setting import ANSIBLE_ROLES
+
+from power.config import ANSIBLE_ROLES
 
 
 class Git():

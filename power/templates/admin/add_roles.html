@@ -1,0 +1,59 @@
+{% extends "layouts/dashboard.html" %}
+{% block title %} Power Roles {% endblock %}
+
+{% block menus %}
+<ul>
+    <li><a href="/admin">Dashboard</a></li>
+    <li><a href="/admin/tasks">Tasks</a></li>
+    <li><a href="/admin/hosts">Hosts</a></li>
+    <li class="pure-menu-selected"><a href="/admin/roles">Roles</a></li>
+    <li><a href="/admin/projects">Projects</a></li>
+    <li><a href="/logout">Logout</a></li>
+</ul>
+{% endblock %}
+{% block content %}
+<div class="admin-content-wrapper side-content-wrapper">
+    <div class="content">
+        <ul class="breadcrumb">
+            <li><a href="/admin/roles">Roles</a>
+            </li>
+            <li class="active"><a href="">Create Role</a></li>
+        </ul>
+        <div class="clearfix"></div>
+        <div class="radius-panel">
+            <form class="pure-form pure-form-stacked">
+                <fieldset>
+                    <legend>Role</legend>
+                    <label>Name:</label>
+                    <input type="text" placeholder="Name">
+                    <label>Description:</label>
+                    <input type="text" placeholder="Description">
+                    <label>SCM Type</label>
+                    <select>
+                        <option>Choice SCM Type</option>
+                        <option>Manual</option>
+                        <option>Git</option>
+                    </select>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Git </legend>
+                    <label>Repository:</label>
+                    <input type="text" placeholder="Name">
+                    <label>Credentials</label>
+                    <select>
+                        <option>Choice Credentials</option>
+                        <option>aaa</option>
+                        <option>bbb</option>
+                    </select>
+                </fieldset>
+                <br/>
+
+                <button type="submit" class="pure-button pure-button-primary">Save</button>
+                <button type="reset" class="pure-button pure-button-primary">Reset</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,10 +1,12 @@
 # coding=utf-8
 # !/usr/bin/python
 import os
+
 import yaml
-from setting import ANSIBLE_PLAYBOOKS
-from playbook import Playbook
 from fabric.api import lcd, local
+
+from power.config import ANSIBLE_PLAYBOOKS
+from playbook import Playbook
 
 
 class Ansible():
