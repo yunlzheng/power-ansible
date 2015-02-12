@@ -47,25 +47,6 @@ label {
 }
 
 
-
-/*
- * -- PURE FORM STYLES --
- * Style the form inputs and labels
- */
-.pure-form label {
-    margin: 1em 0 0;
-    font-weight: bold;
-    font-size: 100%;
-}
-
-.pure-form input[type] {
-    border: 2px solid #ddd;
-    box-shadow: none;
-    font-size: 100%;
-    width: 100%;
-    margin-bottom: 1em;
-}
-
 /*
  * -- PURE BUTTON STYLES --
  * I want my pure-button elements to look a little different
@@ -189,9 +170,8 @@ a.pure-button-primary {
 }
 
 .admin-content-wrapper{
-    position: absolute;
-    top: 60px;
-    width: 100%;
+    margin:15px;
+    margin-top:70px;
     min-height: 12%;
     z-index: 2;
     background: white;

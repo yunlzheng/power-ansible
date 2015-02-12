@@ -25,8 +25,8 @@
     {% endblock %}
 </head>
 <body>
-<div class="header">
-    <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+<div class="header side_menu">
+    <div class="pure-menu pure-menu-open">
         <a class="pure-menu-heading" href="/">Power.io</a>
         {% block menus %}
         {% endblock %}
@@ -35,15 +35,10 @@
 
 {% block splash %}{% endblock %}
  {% block content %}
-<div class="content-wrapper">
-
-
-
-
+<div class="content-wrapper side-content-wrapper">
     <div class="footer l-box is-center">
         View the source of this layout to learn more. Made with love by the YUI Team.
     </div>
-
 </div>
 {% endblock %}
 

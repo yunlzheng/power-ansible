@@ -1,0 +1,77 @@
+{% extends "admin_layout.html" %}
+{% block title %} Power Roles {% endblock %}
+
+{% block menus %}
+<ul>
+    <li class="pure-menu-selected"><a href="/admin">Dashboard</a></li>
+    <li><a href="/admin/tasks">Tasks</a></li>
+    <li><a href="/admin/hosts">Hosts</a></li>
+    <li><a href="/admin/roles">Roles</a></li>
+    <li ><a href="/admin/projects">Projects</a></li>
+    <li><a href="/logout">Logout</a></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<div class="admin-content-wrapper side-content-wrapper">
+   <div class="pure-g" id="dash-counts">
+       <div class="pure-u-4-24 h2 text-center">
+           <a href="">0</a>
+           <br/>
+           <h6>Item</h6>
+       </div>
+       <div class="pure-u-4-24 h2 text-center">
+           <a href="">0</a>
+           <br/>
+           <h6>Item</h6>
+       </div>
+       <div class="pure-u-4-24 h2 text-center">
+           <a href="">0</a>
+           <br/>
+           <h6>Item</h6>
+       </div>
+       <div class="pure-u-4-24 h2 text-center">
+           <a href="">0</a>
+           <br/>
+           <h6>Item</h6>
+       </div>
+       <div class="pure-u-4-24 h2 text-center">
+           <a href="">0</a>
+           <br/>
+           <h6>Item</h6>
+       </div>
+       <div class="pure-u-4-24 h2 text-center">
+           <a href="">0</a>
+           <br/>
+           <h6>Item</h6>
+       </div>
+   </div>
+
+    <div class="pure-g">
+         <div class="pure-u-12-24">
+             <div class="radius-panel">
+                 panel a
+             </div>
+         </div>
+        <div class="pure-u-12-24">
+             <div class="radius-panel right">
+                  panel b
+             </div>
+         </div>
+    </div>
+
+    <div class="pure-g">
+         <div class="pure-u-12-24">
+             <div class="radius-panel">
+                 panel c
+             </div>
+         </div>
+        <div class="pure-u-12-24">
+             <div class="radius-panel right">
+                  panel d
+             </div>
+         </div>
+    </div>
+
+</div>
+{% endblock %}

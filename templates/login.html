@@ -3,11 +3,8 @@
 
 {% block menus %}
 <ul>
-    <li><a href="/">Dashboard</a></li>
-    <li><a href="/tasks">Tasks</a></li>
-    <li><a href="/hosts">Hosts</a></li>
-    <li><a href="/roles">Roles</a></li>
-    <li><a href="/login">Sinup</a></li>
+    <li><a href="/">Home</a></li>
+    <li class="pure-menu-selected"><a href="/login">Login</a></li>
 </ul>
 {% endblock %}
 
@@ -15,17 +12,14 @@
 <div class="admin-content-wrapper">
 
     <div class="content">
-        <div class="pure-g">
+        <form class="pure-form login-form" method="POST">
 
-                <form class="pure-form" style="width:400px;margin:0 auto">
-                    <h2>Power</h2>
-                    <fieldset class="pure-group">
-                        <input type="text" class="pure-input-1-2" placeholder="Username">
-                        <input type="text" class="pure-input-1-2" placeholder="Password">
-                    </fieldset>
-                    <button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Login</button>
-                </form>
-        </div>
+            <fieldset class="pure-group">
+                <input type="text"  placeholder="Email">
+                <input type="password"  placeholder="Password">
+            </fieldset>
+            <button type="submit" class="pure-button pure-button-primary">Login</button>
+        </form>
     </div>
 </div>
 {% endblock %}

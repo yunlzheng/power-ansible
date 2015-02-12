@@ -3,8 +3,10 @@
 import os.path
 from flask import Flask
 from flask import render_template
+from flask import request, redirect
 
 from power.api.demo import DemoAPI
+from power.ui.projects_adaptor import ProjectsAdaptor
 
 app = Flask(__name__)
 app.add_url_rule('/api/demo', view_func=DemoAPI.as_view('demos'))
@@ -14,30 +16,47 @@ app.add_url_rule('/api/demo', view_func=DemoAPI.as_view('demos'))
 def hello_world():
     return render_template('index.html')
 
+@app.route('/admin', methods=['GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'OPTIONS'])
+def dashboard():
+    return render_template('admin/dashboard.html')
 
-@app.route('/hello', methods=['GET', 'POST'])
-def hello():
-    return 'Hello World'
 
-
-@app.route('/roles', methods=['GET', 'POST'])
-@app.route('/roles/<uuid>', methods=['GET', 'POST'])
+@app.route('/admin/roles', methods=['GET', 'POST'])
+@app.route('/admin/roles/<uuid>', methods=['GET', 'POST'])
 def roles(uuid=None):
     if uuid:
         return "platform host {0}".format(uuid)
-    return render_template('roles.html')
+    return render_template('admin/roles.html')
 
+@app.route('/admin/tasks', methods=['GET', 'POST'])
+@app.route('/admin/tasks/<uuid>', methods=['GET', 'POST'])
+def tasks(uuid=None):
+    if uuid:
+        return "platform tasks {0}".format(uuid)
+    return render_template('admin/tasks.html')
 
-@app.route('/hosts', methods=['GET', 'POST'])
-@app.route('/hosts/<uuid>', methods=['GET', 'POST'])
-def show_hosts(uuid=None):
+@app.route('/admin/hosts', methods=['GET', 'POST'])
+@app.route('/admin/hosts/<uuid>', methods=['GET', 'POST'])
+def hosts(uuid=None):
     if uuid:
         return "platform host {0}".format(uuid)
-    return render_template('hosts.html')
+    return render_template('admin/hosts.html')
+
+@app.route('/admin/projects')
+@app.route('/admin/projects/<uuid>')
+def projects(uuid=None):
+    return ProjectsAdaptor(request, uuid=uuid).handle()
 
 @app.route('/login', methods=['GET', 'POST'])
-def loin():
-    return render_template('login.html')
+def login():
+    if request.method == "POST":
+        return redirect("/admin")
+    else:
+        return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+    return redirect("/")
 
 @app.errorhandler(404)
 def not_found(error):
