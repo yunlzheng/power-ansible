@@ -1,6 +1,6 @@
 web:
   build: .
-  command: python server.py
+  command: python manage.py runserver
   ports:
    - "5001:5001"
   volumes:
@@ -9,3 +9,5 @@ web:
    - mongo
 mongo:
   image: mongo
+  ports:
+   - "27017:27017"

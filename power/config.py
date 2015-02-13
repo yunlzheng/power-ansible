@@ -47,8 +47,12 @@ class BaseConfig(object):
 class DefaultConfig(BaseConfig):
     DEBUG = True
 
+    DEBUG_TB_INTERCEPT_REDIRECTS = False
+    DEBUG_TB_PROFILER_ENABLED = True
+
+
     #Flask-Mongoengine
-    MONGODB_DB = 'power-beta'
+    MONGODB_DB = 'power_beta'
     MONGODB_HOST = 'mongo'
 
     # Flask-babel: http://pythonhosted.org/Flask-Babel/
@@ -78,10 +82,14 @@ class DefaultConfig(BaseConfig):
 
 class TestConfig(BaseConfig):
     TESTING = True
-    WTF_CSRF_ENABLED = False
+    DEBUG = True
 
-    SQLALCHEMY_ECHO = False
-    SQLALCHEMY_DATABASE_URI = 'sqlite://'
+    DEBUG_TB_INTERCEPT_REDIRECTS = True
+    DEBUG_TB_PROFILER_ENABLED = True
+
+    #Flask-Mongoengine
+    MONGODB_PORT = 27010
+    MONGODB_HOST = '192.168.59.103'
 
 
 

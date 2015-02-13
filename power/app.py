@@ -1,13 +1,17 @@
 # coding=utf-8
-from flask import Flask
+import os
+from bson.objectid import ObjectId
+from flask import (Flask, current_app)
 from flask import render_template
+import pymongo
 
 from power.config import DefaultConfig
 from power.config import INSTANCE_FOLDER_PATH
 from power.frontend import frontend
 from power.admin import admin
+from power.user.modles import User
 
-from power.extensions import db, login_manager, cache
+from power.extensions import db, login_manager, cache, debug_toolbar
 
 __all__ = ['create_app']
 
@@ -15,6 +19,7 @@ DEFAULT_BLUEPRINTS = (
     frontend,
     admin
 )
+
 
 def create_app(config=None, app_name=None, blueprints=None):
     if app_name is None:
@@ -50,9 +55,36 @@ def configure_extensions(app):
 
     # flask-login
     login_manager.login_view = 'frontend.login'
-    #login_manager.refresh_view = 'frontend.reauth'
+    # login_manager.refresh_view = 'frontend.reauth'
+
+    @login_manager.user_loader
+    def load_user(id):
+        current_app.logger.debug(id)
+        return User.objects.get(email=id)
 
     login_manager.setup_app(app)
+    debug_toolbar.init_app(app)
+
+
+def configure_logging(app):
+    if app.debug or app.testing:
+        # Skip debug and test mode. Just check standard output.
+        return
+    import logging
+    from logging.handlers import SMTPHandler
+
+    # Set info level on logger, which might be overwritten by handers.
+    # Suppress DEBUG messages.
+    app.logger.setLevel(logging.INFO)
+
+    info_log = os.path.join(app.config['LOG_FOLDER'], 'info.log')
+    info_file_handler = logging.handlers.RotatingFileHandler(info_log, maxBytes=100000, backupCount=10)
+    info_file_handler.setLevel(logging.INFO)
+    info_file_handler.setFormatter(logging.Formatter(
+        '%(asctime)s %(levelname)s: %(message)s '
+        '[in %(pathname)s:%(lineno)d]')
+    )
+    app.logger.addHandler(info_file_handler)
 
 
 def config_error_handlers(app):

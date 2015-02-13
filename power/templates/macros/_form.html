@@ -1,18 +1,23 @@
 {% macro render_checkbox(field) %}
 
-{% endmacro%}
+<label>
+    <input name="{{ field.label.field_id }}" type="checkbox" class="pure-checkbox"> Remember me
+</label>
 
+{% endmacro%}
 
 
 {% macro render_input(field, password=False)%}
 
-<input type="{% if password %}password{% else %}text{% endif %}" class="{% if field.errors %}has-error{% endif %}" placeholder="{{ field.label.text }}"/>
+<input name="{{ field.label.field_id }}" type="{% if password %}password{% else %}text{% endif %}"
+       class="{% if field.errors %}has-error{% endif %}"
+       placeholder="{{ field.label.text }}"/>
 
 {% endmacro %}
 
 
 {% macro render_action(field) %}
-    <button type="submit" class="pure-button pure-button-primary">{{ field.label.text }}</button>
+<button type="submit" class="pure-button pure-button-primary">{{ field.label.text }}</button>
 {% endmacro %}
 
 
@@ -24,37 +29,40 @@
       {% if form.multipart %}enctype="multipart/form-data" {% endif %}>
 
     {% if legend %}
-        <legend>{{ legend|safe }}</legend>
+    <legend>{{ legend|safe }}</legend>
     {% endif %}
 
-    {% if group %}<fieldset class="pure-group">{% endif %}
+    {% if group %}
+    <fieldset class="pure-group">{% endif %}
 
-    {% for field in form %}
-          {% if field.type != "HiddenField" and field.type != "CSRFTokenField" %}
-                {% if field.type == "RadioField" %}
-                    {{ render_radio(field) }}
-                {% elif field.type == "BooleanField" %}
-                    {{ render_checkbox(field) }}
-                {% elif field.type == "TextAreaField" %}
-                    {{ render_textarea(field) }}
-                {% elif field.type == "DateField" %}
-                    {{ render_datepicker(field) }}
-                {% elif field.type == "FileField" %}
-                    {{ render_file(field) }}
-                {% elif field.type == "StringField" %}
-                        {{ render_input(field) }}
-                {% elif field.type == "PasswordField" %}
-                        {{ render_input(field, password=True) }}
-                {% endif %}
-            {% endif %}
-    {% endfor %}
-
-    {% if group %}</fieldset>{% endif %}
-
-    {% for field in form %}
-        {% if field.type == "SubmitField" %}
-            {{ render_action(field) }}
+        {% for field in form %}
+        {% if field.type != "HiddenField" and field.type != "CSRFTokenField" %}
+        {% if field.type == "RadioField" %}
+        {{ render_radio(field) }}
+        {% elif field.type == "TextAreaField" %}
+        {{ render_textarea(field) }}
+        {% elif field.type == "DateField" %}
+        {{ render_datepicker(field) }}
+        {% elif field.type == "FileField" %}
+        {{ render_file(field) }}
+        {% elif field.type == "StringField" %}
+        {{ render_input(field) }}
+        {% elif field.type == "PasswordField" %}
+        {{ render_input(field, password=True) }}
         {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% if group %}
+    </fieldset>
+    {% endif %}
+
+    {% for field in form %}
+    {% if field.type == "SubmitField" %}
+    {{ render_action(field) }}
+    {% elif field.type == "BooleanField" %}
+    {{ render_checkbox(field) }}
+    {% endif %}
     {% endfor %}
 
 </form>

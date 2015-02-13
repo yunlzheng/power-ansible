@@ -19,11 +19,12 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/layouts/marketing-old-ie.css') }}">
     <![endif]-->
     <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/layouts/marketing.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layouts/marketing.css') }}">
     <!--<![endif]-->
     {% endblock %}
 </head>
 <body>
+{% include "macros/_ask_user_to_update_ie.html" %}
 <div class="header">
     <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
         <a class="pure-menu-heading" href="/">Power.io</a>
@@ -33,16 +34,31 @@
 </div>
 
 {% block splash %}{% endblock %}
- {% block content %}
+
+{% block flash_message %}
+<div class="container-fluid" style="position: fixed; z-index: 10000;">
+    {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+    <div class="container-fluid">
+        <div id='flash_message_container'>
+            {% for category, msg in messages %}
+            <div class="alert alert-{{ category }}">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                {{ msg }}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    {% endwith %}
+</div>
+{% endblock %}
+
+{% block content %}
 <div class="content-wrapper">
-
-
-
-
     <div class="footer l-box is-center">
         View the source of this layout to learn more. Made with love by the YUI Team.
     </div>
-
 </div>
 {% endblock %}
 

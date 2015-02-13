@@ -211,6 +211,11 @@ float: left;
     width:100%;
 }
 
+.admin-content-wrapper .login-form .pure-checkbox{
+    width:5%;
+    display: inline-block;
+}
+
 .login-form .pure-button{
     width:100%;
 }

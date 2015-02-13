@@ -13,3 +13,7 @@ cache = Cache()
 
 from flask.ext.login import LoginManager
 login_manager = LoginManager()
+
+from flask_debugtoolbar import DebugToolbarExtension
+
+debug_toolbar = DebugToolbarExtension()

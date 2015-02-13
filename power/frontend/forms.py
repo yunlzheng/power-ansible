@@ -8,8 +8,8 @@ from wtforms import validators
 
 class LoginForm(Form):
     next = HiddenField()
-    login = StringField(u'Username or email', [validators.input_required()])
-    password = PasswordField(u'Password', validators=[validators.input_required()])
+    login = StringField(u'Username or email')
+    password = PasswordField(u'Password')
     remember = BooleanField('Remember me')
     submit = SubmitField('Sign in')
 
