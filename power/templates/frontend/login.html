@@ -1,3 +1,4 @@
+{% from "macros/_form.html" import render_form %}
 {% extends "layouts/frontend.html" %}
 {% block title %} Power Roles {% endblock %}
 
@@ -12,13 +13,7 @@
 <div class="admin-content-wrapper">
 
     <div class="content">
-        <form class="pure-form login-form" method="POST">
-            <fieldset class="pure-group">
-                <input type="text"  placeholder="Email">
-                <input type="password"  placeholder="Password">
-            </fieldset>
-            <button type="submit" class="pure-button pure-button-primary">Login</button>
-        </form>
+        {{ render_form(url_for('frontend.login'), form, login=True, group=True)}}
     </div>
 </div>
 {% endblock %}

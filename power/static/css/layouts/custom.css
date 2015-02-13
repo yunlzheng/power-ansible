@@ -80,10 +80,8 @@ font-size: 12px;
 }
 
 .side_menu {
-
-    margin-left: -150px;
-    left:150px;
-    width: 150px;
+    left:0px;
+    width: 180px;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -103,6 +101,7 @@ font-size: 12px;
     background: #2d3e50;
     margin-top: 0;
     padding-top:0.5em;
+    border: none;
 }
 
 .side_menu .pure-menu-selected, #menu .pure-menu-heading {
@@ -124,7 +123,7 @@ font-size: 12px;
 }
 
 .side-content-wrapper{
-    padding-left: 150px;
+    padding-left: 180px;
     left: 0;
 }
 
