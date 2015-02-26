@@ -6,6 +6,8 @@ from flask import (Blueprint, render_template, current_app, request,
 from flask.ext.login import login_required
 
 from power.ui.projects_adaptor import ProjectsAdaptor
+from power.admin.forms import CloneRoleForm
+from power.common.git import Git
 
 admin = Blueprint('admin', __name__, url_prefix='/admin')
 
@@ -23,6 +25,12 @@ def roles(uuid=None):
     if uuid:
         return render_template('admin/role.html')
     return render_template('admin/roles.html')
+
+@admin.route('/roles/clone', methods=['GET', 'POST'])
+def download_role():
+    form = CloneRoleForm(request.form)
+    if form.validate():
+        Git.clone(form.name, form.git_repo)
 
 
 @admin.route('/roles/add', methods=['GET'])
