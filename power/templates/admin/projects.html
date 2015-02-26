@@ -2,13 +2,13 @@
 {% block title %} Power Roles {% endblock %}
 
 {% block menus %}
+
 <ul>
     <li><a href="/admin/">Dashboard</a></li>
     <li><a href="/admin/tasks">Tasks</a></li>
     <li><a href="/admin/hosts">Hosts</a></li>
     <li><a href="/admin/roles">Roles</a></li>
     <li class="pure-menu-selected"><a href="/admin/projects">Projects</a></li>
-    <li><a href="/logout">Logout</a></li>
 </ul>
 {% endblock %}
 {% block content %}
@@ -24,6 +24,10 @@
             <div class="pure-u-2-3">
                 <div class="right">
                     <button class="pure-button pure-button-primary">+</button>
+                    <button class="pure-button">
+    <i class="fa fa-cog"></i>
+    Settings
+</button>
                 </div>
             </div>
         </div>
