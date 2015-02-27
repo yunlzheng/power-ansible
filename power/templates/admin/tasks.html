@@ -1,15 +1,7 @@
 {% extends "layouts/dashboard.html" %}
 {% block title %} Power Roles {% endblock %}
+{% set active_page = "tasks" %}
 
-{% block menus %}
-   <ul>
-        <li><a href="/admin/">Dashboard</a></li>
-        <li  class="pure-menu-selected"><a href="/admin/tasks">Tasks</a></li>
-        <li><a href="/admin/hosts">Hosts</a></li>
-        <li><a href="/admin/roles">Roles</a></li>
-        <li ><a href="/admin/projects">Projects</a></li>
-    </ul>
-{% endblock %}
 {% block content %}
 <div class="admin-content-wrapper side-content-wrapper">
     <div class="content">
