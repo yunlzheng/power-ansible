@@ -1,0 +1,90 @@
+
+.breadcrumb-wrapper{
+    margin-left: 200px;
+    height: 55px;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 10px 10px 0px;
+}
+
+
+.breadcrumb {
+	/*centering*/
+	display: inline-block;
+	overflow: hidden;
+}
+
+.breadcrumb a {
+	text-decoration: none;
+	outline: none;
+	display: block;
+	float: left;
+	font-size: 16px;
+	font-weight: bolder;
+	line-height: 36px;
+	color: white;
+	/*need more margin on the left of links to accomodate the numbers*/
+	padding: 0 10px 0 35px;
+	background: rgb(209,209,209);
+	background: linear-gradient(#666, #333);
+	position: relative;
+}
+
+.breadcrumb a:first-child:before {
+	left: 14px;
+}
+
+.breadcrumb a.active, .breadcrumb a:hover{
+	background: #333;
+	background: linear-gradient(#333, #000);
+}
+.breadcrumb a.active:after, .breadcrumb a:hover:after {
+	background: #333;
+	background: linear-gradient(135deg, #333, #000);
+}
+
+.breadcrumb a:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: -18px;
+	width: 36px;
+	height: 36px;
+	transform: scale(0.707) rotate(45deg);
+	z-index: 1;
+	background: #666;
+	background: linear-gradient(135deg, #666, #333);
+	box-shadow:
+		2px -2px 0 2px rgba(0, 0, 0, 0.4),
+		3px -3px 0 2px rgba(255, 255, 255, 0.1);
+	border-radius: 0 5px 0 50px;
+}
+
+.breadcrumb a:before {
+	/*some styles now*/
+	border-radius: 100%;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	margin: 8px 0;
+	position: absolute;
+	top: 0;
+	left: 30px;
+	background: #444;
+	background: linear-gradient(#444, #222);
+	font-weight: bold;
+}
+
+.flat a, .flat a:after {
+	background: #fff;
+	color: black;
+	transition: all 0.5s;
+	box-shadow: 2px -2px 0 2px #FFFFFF, 3px -3px 0 2px #ddd
+}
+.flat a:before {
+	background: white;
+	box-shadow: 0 0 0 1px #ccc;
+}
+.flat a:hover, .flat a.active,
+.flat a:hover:after, .flat a.active:after{
+	background: #fff;
+}

@@ -66,7 +66,7 @@ def configure_extensions(app):
     login_manager.setup_app(app)
     debug_toolbar.init_app(app)
     assets.init_app(app)
-    scss = Bundle('css/scss/power.scss', filters='pyscss', output='css/power.css')
+    scss = Bundle('css/scss/*.scss', filters='pyscss', output='css/power.css')
     assets.register('scss_all', scss)
     common_css = Bundle('css/commons/*.css', output='css/commons.css')
     common_ie8_css = Bundle('css/commons/*.css', output='css/commons-ie8.css')

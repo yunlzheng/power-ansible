@@ -62,9 +62,10 @@
 
 <div class="breadcrumb-wrapper">
     <div class="breadcrumb flat">
-        <a href="#">AAA</a>
-         <a href="#">BBB</a>
-         <a href="#">CCC</a>
+        <a href="/admin">dashbord</a>
+        {% if active_page != "dashboard" %}
+        <a href="/admin/{{ active_page }}">{{ active_page }}</a>
+        {% endif %}
     </div>
 </div>
 
