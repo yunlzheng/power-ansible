@@ -2,10 +2,12 @@ FROM ubuntu:14.04
 MAINTAINER Yunlong Zheng yunl.zheng@gmail.com
 ENV REFRESHED_AT 2015-2-7
 
-#ADD ./provision/roles/common/files/sources.list /etc/apt/sources.list
+ADD ./provision/roles/common/files/sources.list /etc/apt/sources.list
 
 RUN apt-get update
+
 RUN apt-get install python-pip python-dev -y
+RUN  apt-get install libpcre3-dev tk-dev python-tk -y
 
 ADD . /vagrant
 WORKDIR /vagrant

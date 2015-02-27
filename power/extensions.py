@@ -3,6 +3,7 @@
 import flask.ext
 
 from flask.ext.mongoengine import MongoEngine
+
 db = MongoEngine()
 
 # from flask.ext.mail import Mail
@@ -17,3 +18,6 @@ login_manager = LoginManager()
 from flask_debugtoolbar import DebugToolbarExtension
 
 debug_toolbar = DebugToolbarExtension()
+
+from flask.ext.assets import Environment, Bundle
+assets = Environment()

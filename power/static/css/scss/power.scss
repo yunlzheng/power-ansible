@@ -1,31 +1,31 @@
- .button-success,
-        .button-error,
-        .button-warning,
-        .button-secondary {
-            color: white;
-            border-radius: 4px;
-            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-        }
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
 
-        .button-success {
-            background: rgb(28, 184, 65); /* this is a green */
-        }
+.button-success {
+    background: rgb(28, 184, 65); /* this is a green */
+}
 
-        .button-error {
-            background: rgb(202, 60, 60); /* this is a maroon */
-        }
+.button-error {
+    background: rgb(202, 60, 60); /* this is a maroon */
+}
 
-        .button-warning {
-            background: rgb(223, 117, 20); /* this is an orange */
-        }
+.button-warning {
+    background: rgb(223, 117, 20); /* this is an orange */
+}
 
-        .button-secondary {
-            background: rgb(66, 184, 221); /* this is a light blue */
-        }
+.button-secondary {
+    background: rgb(66, 184, 221); /* this is a light blue */
+}
 
 a {
-color: #1778c3;
-text-decoration: none;
+    color: #1778c3;
+    text-decoration: none;
 }
 
 h2, .h2 {
@@ -44,6 +44,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     color: inherit;
 }
 
+h6, .h6 {
+font-size: 12px;
+}
+
 .left{
     float: left;
 }
@@ -52,17 +56,16 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     float: right
 }
 
-h6, .h6 {
-font-size: 12px;
-}
+
 
 .text-center {
     text-align: center!important;
 }
 
+
 .radius-panel {
 
-    width:100%%;
+    width:100%;
     border-radius: 4px;
     padding: 15px;
     min-height:350px;
@@ -71,12 +74,9 @@ font-size: 12px;
     margin-top:1px;
 }
 
+
 .main-table {
     width:100%;
-}
-
-.table-menus{
-
 }
 
 .side_menu {

@@ -3,6 +3,7 @@ import os
 from bson.objectid import ObjectId
 from flask import (Flask, current_app)
 from flask import render_template
+from flask.ext.assets import Bundle
 import pymongo
 
 from power.config import DefaultConfig
@@ -11,7 +12,7 @@ from power.frontend import frontend
 from power.admin import admin
 from power.user.modles import User
 
-from power.extensions import db, login_manager, cache, debug_toolbar
+from power.extensions import db, login_manager, cache, debug_toolbar, assets
 
 __all__ = ['create_app']
 
@@ -64,6 +65,13 @@ def configure_extensions(app):
 
     login_manager.setup_app(app)
     debug_toolbar.init_app(app)
+    assets.init_app(app)
+    scss = Bundle('css/scss/power.scss', filters='pyscss', output='css/power.css')
+    assets.register('scss_all', scss)
+    common_css = Bundle('css/commons/*.css', output='css/commons.css')
+    common_ie8_css = Bundle('css/commons/*.css', output='css/commons-ie8.css')
+    assets.register('common-css', common_css)
+    assets.register('common-css-ie8', common_ie8_css)
 
 
 def configure_logging(app):
