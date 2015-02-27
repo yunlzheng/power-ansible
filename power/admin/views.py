@@ -6,7 +6,7 @@ from flask import (Blueprint, render_template, current_app, request,
 from flask.ext.login import login_required
 
 from power.ui.projects_adaptor import ProjectsAdaptor
-from power.admin.forms import CloneRoleForm
+from power.admin.forms import CloneRoleForm, CreateCredentialForm
 from power.common.git import Git
 
 admin = Blueprint('admin', __name__, url_prefix='/admin')
@@ -17,6 +17,17 @@ admin = Blueprint('admin', __name__, url_prefix='/admin')
 def index():
     return render_template('admin/dashboard.html')
 
+
+@admin.route('/credentials')
+@login_required
+def credentials():
+    return render_template('admin/credentials.html')
+
+@admin.route('/credentials/add')
+@login_required
+def add_credentials():
+    form = CreateCredentialForm(request.form)
+    return render_template('admin/credentials/add.html', form=form)
 
 @admin.route('/roles')
 @admin.route('/roles/<int:uuid>')

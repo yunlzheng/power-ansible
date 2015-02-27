@@ -1,22 +1,50 @@
-{% macro render_checkbox(field) %}
+{% macro render_checkbox(field, group=False) %}
 
-<label>
-    <input name="{{ field.label.field_id }}" type="checkbox" class="pure-checkbox"> Remember me
-</label>
+{% if group %}
+<div class="pure-control-group">{% endif %}
+    <label>
+        <input name="{{ field.label.field_id }}" type="checkbox" class="pure-checkbox"> Remember me
+    </label>
+{% if group %}</div>{% endif %}
+
+
+
+{% endmacro%}
+
+{% macro render_select(field, group=False) %}
+
+{% if not group %}<div class="pure-control-group"> {% endif %}
+
+    <select id="state">
+        <option>{{ field.coerce }}</option>
+        {% for choice in field.choices -%}
+        <option value="{{ choice[0] }}">{{ choice[1] }}</option>
+        {% endfor %}
+    </select>
+
+    {% if not group %}</div>{% endif %}
 
 {% endmacro%}
 
 
-{% macro render_input(field, password=False)%}
+{% macro render_input(field, group, password=False)%}
 
+{% if group %}
 <input name="{{ field.label.field_id }}" type="{% if password %}password{% else %}text{% endif %}"
        class="{% if field.errors %}has-error{% endif %}"
        placeholder="{{ field.label.text }}"/>
+{% else %}
+<div class="pure-control-group">
+    <input name="{{ field.label.field_id }}" type="{% if password %}password{% else %}text{% endif %}"
+           class="{% if field.errors %}has-error{% endif %}"
+           placeholder="{{ field.label.text }}"/>
+</div>
+{% endif %}
 
 {% endmacro %}
 
 
-{% macro render_action(field) %}
+{% macro render_action(field, group) %}
 <button type="submit" class="pure-button pure-button-primary">{{ field.label.text }}</button>
 {% endmacro %}
 
@@ -38,17 +66,19 @@
         {% for field in form %}
         {% if field.type != "HiddenField" and field.type != "CSRFTokenField" %}
         {% if field.type == "RadioField" %}
-        {{ render_radio(field) }}
+        {{ render_radio(field, group) }}
         {% elif field.type == "TextAreaField" %}
-        {{ render_textarea(field) }}
+        {{ render_textarea(field, group) }}
         {% elif field.type == "DateField" %}
-        {{ render_datepicker(field) }}
+        {{ render_datepicker(field, group) }}
         {% elif field.type == "FileField" %}
-        {{ render_file(field) }}
+        {{ render_file(field,group) }}
         {% elif field.type == "StringField" %}
-        {{ render_input(field) }}
+        {{ render_input(field,group) }}
         {% elif field.type == "PasswordField" %}
-        {{ render_input(field, password=True) }}
+        {{ render_input(field, group, password=True) }}
+        {% elif field.type == "SelectField" %}
+        {{ render_select(field, group) }}
         {% endif %}
         {% endif %}
         {% endfor %}
