@@ -1,0 +1,32 @@
+a {
+    color: #1778c3;
+    text-decoration: none;
+}
+
+h2, .h2 {
+    font-size: 30px;
+}
+
+h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}
+
+h6, .h6 {
+font-size: 12px;
+}
+
+.left{
+    float: left;
+}
+
+.right {
+    float: right
+}
