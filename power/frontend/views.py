@@ -22,9 +22,6 @@ def login():
 
     form = LoginForm(request.form)
 
-    if request.method == 'GET':
-        return render_template('frontend/login.html', form=form)
-
     if form.validate():
         user, authenticated = User.authenticate(form.login.data, form.password.data)
         if user and authenticated:

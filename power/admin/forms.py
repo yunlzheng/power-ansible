@@ -3,7 +3,7 @@
 from wtforms.form import Form
 
 from wtforms.form import Form
-from wtforms import (BooleanField, StringField, SelectField)
+from wtforms import (BooleanField, StringField, SelectField, SubmitField)
 
 
 class CloneRoleForm(Form):
@@ -29,7 +29,7 @@ class CreateCredentialForm(Form):
     scm_username = StringField('Username')
     scm_password = StringField('Password')
     scm_private_key = StringField('SCM Private Key')
-    scm_key_password = StringField('SCM Private Key')
+    scm_key_password = StringField('SCM Key Password')
 
     aws_access_key = StringField("Access Key")
     aws_secret_key = StringField('Secret Key')
@@ -37,3 +37,5 @@ class CreateCredentialForm(Form):
     openstack_auth_url = StringField("Auth URL")
     openstack_access_key = StringField("Access Key")
     openstack_secret_key = StringField('Secret Key')
+
+    submit = SubmitField('Save')

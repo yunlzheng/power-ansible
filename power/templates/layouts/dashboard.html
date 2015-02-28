@@ -32,6 +32,10 @@
     <link rel=stylesheet type=text/css href="{{ ASSET_URL }}">
     {% endassets %}
 
+    {% assets "common-js" %}
+    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+
 </head>
 <body>
 {% include "macros/_ask_user_to_update_ie.html" %}
@@ -79,6 +83,8 @@
     </div>
 </div>
 {% endblock %}
+
+{% block js %}{% endblock %}
 
 </body>
 </html>

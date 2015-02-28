@@ -23,11 +23,15 @@ def index():
 def credentials():
     return render_template('admin/credentials.html')
 
-@admin.route('/credentials/add')
+
+@admin.route('/credentials/add', methods=['GET', 'POST'])
 @login_required
 def add_credentials():
     form = CreateCredentialForm(request.form)
+    if form.validate():
+        return redirect(url_for('.credentials'))
     return render_template('admin/credentials/add.html', form=form)
+
 
 @admin.route('/roles')
 @admin.route('/roles/<int:uuid>')
@@ -36,6 +40,7 @@ def roles(uuid=None):
     if uuid:
         return render_template('admin/role.html')
     return render_template('admin/roles.html')
+
 
 @admin.route('/roles/clone', methods=['GET', 'POST'])
 def download_role():

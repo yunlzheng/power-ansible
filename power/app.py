@@ -43,14 +43,15 @@ def register_blueprints(app, blueprints):
 
 def configure_app(app, config=None):
     app.config.from_object(DefaultConfig)
+    app.logger.debug(DefaultConfig.DEBUG)
     app.config.from_pyfile('production.cfg', silent=True)
+    app.debug = True
     if config:
         app.config.from_object(config)
 
 
 def configure_extensions(app):
     db.init_app(app)
-
     # flask-cache
     cache.init_app(app)
 
@@ -67,11 +68,14 @@ def configure_extensions(app):
     debug_toolbar.init_app(app)
     assets.init_app(app)
     scss = Bundle('css/scss/*.scss', filters='pyscss', output='css/power.css')
-    assets.register('scss_all', scss)
     common_css = Bundle('css/commons/*.css', output='css/commons.css')
     common_ie8_css = Bundle('css/commons/*.css', output='css/commons-ie8.css')
+    common_js = Bundle('js/commons/*.js', filters='jsmin', output='js/commons.js')
+
+    assets.register('scss_all', scss)
     assets.register('common-css', common_css)
     assets.register('common-css-ie8', common_ie8_css)
+    assets.register('common-js', common_js)
 
 
 def configure_logging(app):

@@ -3,10 +3,9 @@
 {% if group %}
 <div class="pure-control-group">{% endif %}
     <label>
-        <input name="{{ field.label.field_id }}" type="checkbox" class="pure-checkbox"> Remember me
+        <input id="{{ field.id }}" name="{{ field.label.field_id }}" type="checkbox" class="pure-checkbox"> Remember me
     </label>
 {% if group %}</div>{% endif %}
-
 
 
 {% endmacro%}
@@ -15,7 +14,7 @@
 
 {% if not group %}<div class="pure-control-group"> {% endif %}
 
-    <select id="state">
+    <select id="{{ field.id }}">
         <option>{{ field.coerce }}</option>
         {% for choice in field.choices -%}
         <option value="{{ choice[0] }}">{{ choice[1] }}</option>
@@ -30,12 +29,12 @@
 {% macro render_input(field, group, password=False)%}
 
 {% if group %}
-<input name="{{ field.label.field_id }}" type="{% if password %}password{% else %}text{% endif %}"
+<input id="{{ field.id }}" name="{{ field.label.field_id }}" type="{% if password %}password{% else %}text{% endif %}"
        class="{% if field.errors %}has-error{% endif %}"
        placeholder="{{ field.label.text }}"/>
 {% else %}
 <div class="pure-control-group">
-    <input name="{{ field.label.field_id }}" type="{% if password %}password{% else %}text{% endif %}"
+    <input id="{{ field.id }}" name="{{ field.label.field_id }}" type="{% if password %}password{% else %}text{% endif %}"
            class="{% if field.errors %}has-error{% endif %}"
            placeholder="{{ field.label.text }}"/>
 </div>
@@ -45,7 +44,7 @@
 
 
 {% macro render_action(field, group) %}
-<button type="submit" class="pure-button pure-button-primary">{{ field.label.text }}</button>
+<button id="{{ field.id }}" type="submit" class="pure-button pure-button-primary">{{ field.label.text }}</button>
 {% endmacro %}
 
 
